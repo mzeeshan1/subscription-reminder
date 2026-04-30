@@ -1,0 +1,66 @@
+# App
+replicaCount: 1
+
+image:
+  repository: mzeeshan92/subman
+  tag: latest
+  pullPolicy: Always
+
+imagePullSecrets:
+  - name: regcred
+
+# Sensitive values — override with --set or a separate secrets file
+secrets:
+  postgresPassword: "postgres"
+  jwtSecret: "change-me-in-production"
+  telegramBotToken: ""
+  twilioAccountSid: ""
+  twilioAuthToken: ""
+
+# Non-sensitive config
+config:
+  port: "8080"
+  twilioFromNumber: "whatsapp:+14155238886"
+
+# PostgreSQL
+postgres:
+  image: postgres:16
+  database: subman
+  user: postgres
+  storage: 5Gi
+  resources:
+    requests:
+      cpu: 100m
+      memory: 256Mi
+    limits:
+      cpu: 500m
+      memory: 512Mi
+
+# Redis
+redis:
+  image: redis:7
+  resources:
+    requests:
+      cpu: 50m
+      memory: 64Mi
+    limits:
+      cpu: 200m
+      memory: 128Mi
+
+# App resources
+resources:
+  requests:
+    cpu: 100m
+    memory: 64Mi
+  limits:
+    cpu: 500m
+    memory: 128Mi
+
+# Ingress
+ingress:
+  enabled: true
+  className: nginx
+  host: subman.yourdomain.com
+  tls:
+    enabled: false
+    secretName: subman-tls

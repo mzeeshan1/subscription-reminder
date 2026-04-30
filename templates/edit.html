@@ -1,0 +1,81 @@
+{{define "edit.html"}}
+{{template "head" .}}
+{{template "nav" .}}
+
+<div class="max-w-2xl mx-auto px-6 py-8">
+  <div class="mb-6">
+    <a href="/" class="text-sm text-indigo-500 hover:underline">← Back to dashboard</a>
+    <h2 class="text-2xl font-bold text-gray-800 mt-2">Edit Subscription</h2>
+  </div>
+
+  {{if .Error}}
+  <div class="bg-red-50 border border-red-200 text-red-700 text-sm rounded-lg px-4 py-3 mb-6">{{.Error}}</div>
+  {{end}}
+
+  <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
+    <form method="POST" action="/subscriptions/{{.Sub.ID}}" class="space-y-5">
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+        <div class="sm:col-span-2">
+          <label class="block text-sm font-medium text-gray-700 mb-1">Name <span class="text-red-400">*</span></label>
+          <input type="text" name="name" value="{{.Sub.Name}}" required
+            class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-400" />
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1">Cost <span class="text-red-400">*</span></label>
+          <input type="number" name="cost" step="0.01" min="0.01" value="{{printf "%.2f" .Sub.Cost}}" required
+            class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-400" />
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1">Currency</label>
+          <select name="currency"
+            class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-400">
+            <option value="USD" {{if eq .Sub.Currency "USD"}}selected{{end}}>USD — US Dollar</option>
+            <option value="EUR" {{if eq .Sub.Currency "EUR"}}selected{{end}}>EUR — Euro</option>
+            <option value="GBP" {{if eq .Sub.Currency "GBP"}}selected{{end}}>GBP — British Pound</option>
+            <option value="CAD" {{if eq .Sub.Currency "CAD"}}selected{{end}}>CAD — Canadian Dollar</option>
+            <option value="AUD" {{if eq .Sub.Currency "AUD"}}selected{{end}}>AUD — Australian Dollar</option>
+            <option value="PKR" {{if eq .Sub.Currency "PKR"}}selected{{end}}>PKR — Pakistani Rupee</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1">Billing Cycle <span class="text-red-400">*</span></label>
+          <select name="cycle"
+            class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-400">
+            <option value="monthly"   {{if eq .Sub.Cycle "monthly"}}selected{{end}}>Monthly</option>
+            <option value="yearly"    {{if eq .Sub.Cycle "yearly"}}selected{{end}}>Yearly</option>
+            <option value="quarterly" {{if eq .Sub.Cycle "quarterly"}}selected{{end}}>Quarterly</option>
+            <option value="weekly"    {{if eq .Sub.Cycle "weekly"}}selected{{end}}>Weekly</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1">Next Renewal Date <span class="text-red-400">*</span></label>
+          <input type="date" name="renewal" value="{{.Sub.RenewalDateStr}}" required
+            class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-400" />
+        </div>
+
+        <div class="sm:col-span-2">
+          <label class="block text-sm font-medium text-gray-700 mb-1">Notes <span class="text-gray-400 font-normal">(optional)</span></label>
+          <textarea name="notes" rows="2"
+            class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-400">{{.Sub.Notes}}</textarea>
+        </div>
+      </div>
+
+      <div class="flex gap-3 pt-2">
+        <button type="submit"
+          class="bg-indigo-600 text-white font-semibold px-6 py-2 rounded-lg hover:bg-indigo-700 transition text-sm">
+          Save Changes
+        </button>
+        <a href="/" class="px-6 py-2 rounded-lg border border-gray-300 text-gray-600 text-sm hover:bg-gray-50 transition font-medium">
+          Cancel
+        </a>
+      </div>
+    </form>
+  </div>
+</div>
+{{template "foot" .}}
+{{end}}

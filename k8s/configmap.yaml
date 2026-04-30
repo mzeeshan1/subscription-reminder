@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: subman-config
+  namespace: subman
+data:
+  PORT: "8080"
+  REDIS_URL: "redis://redis:6379"
+  TWILIO_FROM_NUMBER: "whatsapp:+14155238886"

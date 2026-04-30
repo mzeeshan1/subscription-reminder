@@ -1,0 +1,87 @@
+# IMPORTANT: replicas is set to 1.
+# The reminder worker runs inside the app process — multiple replicas would
+# run duplicate cron jobs. Redis dedup prevents double-sends but 1 replica
+# is the clean solution until the worker is extracted into a separate service.
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: subman
+  namespace: subman
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: subman
+  template:
+    metadata:
+      labels:
+        app: subman
+    spec:
+      imagePullSecrets:
+        - name: regcred
+      containers:
+        - name: subman
+          image: mzeeshan92/subman:latest # replace with your image
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
+          envFrom:
+            - configMapRef:
+                name: subman-config
+          env:
+            - name: DATABASE_URL
+              valueFrom:
+                secretKeyRef:
+                  name: subman-secret
+                  key: DATABASE_URL
+            - name: JWT_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: subman-secret
+                  key: JWT_SECRET
+            - name: TELEGRAM_BOT_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: subman-secret
+                  key: TELEGRAM_BOT_TOKEN
+            - name: TWILIO_ACCOUNT_SID
+              valueFrom:
+                secretKeyRef:
+                  name: subman-secret
+                  key: TWILIO_ACCOUNT_SID
+            - name: TWILIO_AUTH_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: subman-secret
+                  key: TWILIO_AUTH_TOKEN
+          readinessProbe:
+            httpGet:
+              path: /login
+              port: 8080
+            initialDelaySeconds: 5
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /login
+              port: 8080
+            initialDelaySeconds: 15
+            periodSeconds: 20
+          resources:
+            requests:
+              cpu: 100m
+              memory: 64Mi
+            limits:
+              cpu: 500m
+              memory: 128Mi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: subman
+  namespace: subman
+spec:
+  selector:
+    app: subman
+  ports:
+    - port: 80
+      targetPort: 8080

@@ -1,0 +1,6 @@
+apiVersion: v2
+name: subman
+description: Subscription manager with Telegram and WhatsApp renewal reminders
+type: application
+version: 0.1.0
+appVersion: "1.0.0"
