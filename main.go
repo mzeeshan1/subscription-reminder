@@ -1,9 +1,9 @@
 package main
 
 import (
+	"fmt"
 	"log"
 
-	"github.com/gin-gonic/gin"
 	"subscription-manager/cache"
 	"subscription-manager/config"
 	"subscription-manager/db"
@@ -11,6 +11,8 @@ import (
 	"subscription-manager/middleware"
 	"subscription-manager/notifications"
 	"subscription-manager/worker"
+
+	"github.com/gin-gonic/gin"
 )
 
 func main() {
@@ -67,4 +69,5 @@ func main() {
 
 	log.Printf("listening on :%s", cfg.Port)
 	log.Fatal(router.Run(":" + cfg.Port))
+	fmt.Println("test")
 }
