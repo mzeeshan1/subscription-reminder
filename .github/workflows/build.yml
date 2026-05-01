@@ -3,7 +3,7 @@ name: Build & Push Docker Image
 on:
   push:
     tags:
-      - "v*"
+      - "v[0-9]*"
 
 jobs:
   build:
