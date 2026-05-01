@@ -1,3 +1,15 @@
+# 1.0.0 (2026-05-01)
+
+
+### Bug Fixes
+
+* remove unnecessary print statement ([2f48355](https://github.com/mzeeshan1/subscription-reminder/commit/2f483555ecbe4e9857b662deabe6079728e19631))
+
+
+### Features
+
+* first commit ([8f20739](https://github.com/mzeeshan1/subscription-reminder/commit/8f20739e1dbce5e41614d1f915994af4eff291ff))
+
 # [1.3.0](https://github.com/mzeeshan1/subscription-reminder/compare/v1.2.4...v1.3.0) (2026-05-01)
 
 
