@@ -12,3 +12,5 @@ jobs:
     uses: mzeeshan1/ci-workflows/.github/workflows/semantic-release.yml@main
     with:
       tag_format: "v"
+    secrets:
+      github_token: ${{ secrets.GH_TOKEN }}
