@@ -132,7 +132,13 @@ func (h *SubscriptionHandler) Update(c *gin.Context) {
 func (h *SubscriptionHandler) Delete(c *gin.Context) {
 	userID := c.GetString("userID")
 	id := c.Param("id")
-	h.db.ExecContext(c.Request.Context(), `DELETE FROM subscriptions WHERE id=$1 AND user_id=$2`, id, userID)
+	if _, err := h.db.ExecContext(c.Request.Context(), `DELETE FROM subscriptions WHERE id=$1 AND user_id=$2`, id, userID); err != nil {
+		c.HTML(http.StatusInternalServerError, "dashboard.html", gin.H{
+			"Email": c.GetString("email"),
+			"Error": "Failed to delete subscription.",
+		})
+		return
+	}
 	h.cache.InvalidateSubsCache(c.Request.Context(), userID)
 	c.Redirect(http.StatusFound, "/")
 }

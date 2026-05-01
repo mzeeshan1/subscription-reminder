@@ -38,7 +38,6 @@ func main() {
 
 	router := gin.Default()
 	router.LoadHTMLGlob("templates/*.html")
-	router.Static("/static", "./static")
 
 	authH := handlers.NewAuthHandler(database, redisCache, cfg)
 	subH := handlers.NewSubscriptionHandler(database, redisCache)

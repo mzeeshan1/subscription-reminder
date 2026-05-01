@@ -21,9 +21,15 @@ func (h *SettingsHandler) SettingsPage(c *gin.Context) {
 	userID := c.GetString("userID")
 
 	var telegramChatID, whatsappNumber string
-	h.db.QueryRowContext(c.Request.Context(),
+	if err := h.db.QueryRowContext(c.Request.Context(),
 		`SELECT telegram_chat_id, whatsapp_number FROM users WHERE id=$1`, userID,
-	).Scan(&telegramChatID, &whatsappNumber)
+	).Scan(&telegramChatID, &whatsappNumber); err != nil {
+		c.HTML(http.StatusInternalServerError, "settings.html", gin.H{
+			"Email": c.GetString("email"),
+			"Error": "Failed to load settings.",
+		})
+		return
+	}
 
 	c.HTML(http.StatusOK, "settings.html", gin.H{
 		"Email":          c.GetString("email"),
