@@ -31,4 +31,3 @@ jobs:
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/subman:${{ github.ref_name }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
-# test
