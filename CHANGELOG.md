@@ -1,3 +1,15 @@
+# [1.6.0](https://github.com/mzeeshan1/subscription-reminder/compare/v1.5.0...v1.6.0) (2026-05-01)
+
+
+### Bug Fixes
+
+* trigger release ([e17f5cc](https://github.com/mzeeshan1/subscription-reminder/commit/e17f5cc14573bfd22c25de3a7a87dbaf056de8a6))
+
+
+### Features
+
+* trigger release ([61c26cc](https://github.com/mzeeshan1/subscription-reminder/commit/61c26cc7997e33f5b18f522753937023e715abed))
+
 # [1.5.0](https://github.com/mzeeshan1/subscription-reminder/compare/v1.4.0...v1.5.0) (2026-05-01)
 
 
