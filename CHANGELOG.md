@@ -1,3 +1,10 @@
+# [1.5.0](https://github.com/mzeeshan1/subscription-reminder/compare/v1.4.0...v1.5.0) (2026-05-01)
+
+
+### Features
+
+* trigger release ([0f6feef](https://github.com/mzeeshan1/subscription-reminder/commit/0f6feef6b7a2961b6a322463763d0e5713c43685))
+
 # [1.4.0](https://github.com/mzeeshan1/subscription-reminder/compare/v1.3.0...v1.4.0) (2026-05-01)
 
 
