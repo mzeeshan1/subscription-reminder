@@ -1,3 +1,10 @@
+# [1.7.0](https://github.com/mzeeshan1/subscription-reminder/compare/v1.6.2...v1.7.0) (2026-05-01)
+
+
+### Features
+
+* push images to ecr ([f794682](https://github.com/mzeeshan1/subscription-reminder/commit/f794682c3a5032cf24f57946d96ed2e2619d6b15))
+
 ## [1.6.2](https://github.com/mzeeshan1/subscription-reminder/compare/v1.6.1...v1.6.2) (2026-05-01)
 
 
