@@ -13,4 +13,4 @@ jobs:
     with:
       tag_format: "v"
     secrets:
-      github_token: ${{ secrets.GH_TOKEN }}
+      gh_token: ${{ secrets.GH_TOKEN }}
