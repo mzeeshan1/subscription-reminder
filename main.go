@@ -68,5 +68,4 @@ func main() {
 
 	log.Printf("listening on :%s", cfg.Port)
 	log.Fatal(router.Run(":" + cfg.Port))
-	// test
 }
