@@ -1,3 +1,10 @@
+## [1.6.2](https://github.com/mzeeshan1/subscription-reminder/compare/v1.6.1...v1.6.2) (2026-05-01)
+
+
+### Bug Fixes
+
+* trigger release ([fa832d1](https://github.com/mzeeshan1/subscription-reminder/commit/fa832d1e2147d1f0e526a675b53aededf5347b87))
+
 # [1.6.0](https://github.com/mzeeshan1/subscription-reminder/compare/v1.5.0...v1.6.0) (2026-05-01)
 
 
