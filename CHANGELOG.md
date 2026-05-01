@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/mzeeshan1/subscription-reminder/compare/v1.0.0...v1.1.0) (2026-05-01)
+
+
+### Features
+
+* test ci ([5aaedfc](https://github.com/mzeeshan1/subscription-reminder/commit/5aaedfc50075cbbef9abde05a8e08d500203e663))
+
 # 1.0.0 (2026-05-01)
 
 
