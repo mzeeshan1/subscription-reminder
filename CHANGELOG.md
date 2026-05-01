@@ -1,3 +1,16 @@
+# [1.4.0](https://github.com/mzeeshan1/subscription-reminder/compare/v1.3.0...v1.4.0) (2026-05-01)
+
+
+### Bug Fixes
+
+* **chart:** add commit for chart only ([c8bed1f](https://github.com/mzeeshan1/subscription-reminder/commit/c8bed1f6ab4920a69913953caf2bd38a037c77a2))
+* remove unnecessary print statement ([6fed7bb](https://github.com/mzeeshan1/subscription-reminder/commit/6fed7bbf96802695a14616f120660b2c35bc64e7))
+
+
+### Features
+
+* **chart:** making a chart commit to test ci ([2d7b483](https://github.com/mzeeshan1/subscription-reminder/commit/2d7b483c9ddf724eefb847e9df6384ad9ecd61ef))
+
 # [1.3.0](https://github.com/mzeeshan1/subscription-reminder/compare/v1.2.1...v1.3.0) (2026-05-01)
 
 
