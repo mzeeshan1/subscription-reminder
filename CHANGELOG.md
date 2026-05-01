@@ -1,3 +1,15 @@
+# [1.2.0](https://github.com/mzeeshan1/subscription-reminder/compare/v1.1.0...v1.2.0) (2026-05-01)
+
+
+### Bug Fixes
+
+* test ci ([751c3be](https://github.com/mzeeshan1/subscription-reminder/commit/751c3bed83e799fa7056d4af2b392e29a1305d80))
+
+
+### Features
+
+* test ci ([442b70a](https://github.com/mzeeshan1/subscription-reminder/commit/442b70a8e1415e6763b7a6de950157fced5ee384))
+
 # [1.1.0](https://github.com/mzeeshan1/subscription-reminder/compare/v1.0.0...v1.1.0) (2026-05-01)
 
 
