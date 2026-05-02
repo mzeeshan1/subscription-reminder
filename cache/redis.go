@@ -68,5 +68,3 @@ func (c *Cache) GetSubsCache(ctx context.Context, userID string) ([]byte, error)
 func (c *Cache) InvalidateSubsCache(ctx context.Context, userID string) error {
 	return c.client.Del(ctx, "subs:"+userID).Err()
 }
-
-//
