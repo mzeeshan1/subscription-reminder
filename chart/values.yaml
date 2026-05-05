@@ -64,5 +64,3 @@ ingress:
   tls:
     enabled: false
     secretName: subman-tls
-
-#CI
