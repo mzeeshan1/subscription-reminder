@@ -1,4 +1,4 @@
-name: Build & Push Docker Image
+name: Package & Push Helmchart
 
 on:
   push:
@@ -27,7 +27,7 @@ jobs:
             --password-stdin 783149339345.dkr.ecr.eu-central-1.amazonaws.com
 
       - name: Lint Helm chart
-        run: helm lint charts/my-chart
+        run: helm lint charts/
 
       - name: Build dependencies
         run: helm dependency update chart/
