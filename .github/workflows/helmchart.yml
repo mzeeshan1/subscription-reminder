@@ -27,7 +27,7 @@ jobs:
             --password-stdin 783149339345.dkr.ecr.eu-central-1.amazonaws.com
 
       - name: Lint Helm chart
-        run: helm lint charts/
+        run: helm lint chart/
 
       - name: Build dependencies
         run: helm dependency update chart/
