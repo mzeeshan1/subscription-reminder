@@ -1,3 +1,10 @@
+# [subscription-reminder-chart-v1.7.0](https://github.com/mzeeshan1/subscription-reminder/compare/chart-v1.6.0...chart-v1.7.0) (2026-05-05)
+
+
+### Features
+
+* **chart:** test chart ci ([31b269e](https://github.com/mzeeshan1/subscription-reminder/commit/31b269e5114e401212623a7434c4c1f2a0e432c7))
+
 # [subscription-reminder-chart-v1.6.0](https://github.com/mzeeshan1/subscription-reminder/compare/chart-v1.5.0...chart-v1.6.0) (2026-05-05)
 
 
