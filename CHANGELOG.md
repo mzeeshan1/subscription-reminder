@@ -1,3 +1,10 @@
+# [1.8.0](https://github.com/mzeeshan1/subscription-reminder/compare/v1.7.2...v1.8.0) (2026-05-05)
+
+
+### Features
+
+* trigger ci ([93f9511](https://github.com/mzeeshan1/subscription-reminder/commit/93f95113acb371e7471f6dcdd0323a27aa9d31f6))
+
 ## [1.7.2](https://github.com/mzeeshan1/subscription-reminder/compare/v1.7.1...v1.7.2) (2026-05-02)
 
 
