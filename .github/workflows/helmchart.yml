@@ -1,0 +1,41 @@
+name: Build & Push Docker Image
+
+on:
+  push:
+    tags:
+      - "chart-v[0-9]*"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: eu-central-1
+
+      - name: Login to ECR (Helm OCI)
+        run: |
+          aws ecr get-login-password | helm registry login \
+            --username AWS \
+            --password-stdin 783149339345.dkr.ecr.eu-central-1.amazonaws.com
+
+      - name: Lint Helm chart
+        run: helm lint charts/my-chart
+
+      - name: Build dependencies
+        run: helm dependency update chart/
+
+      - name: Package chart
+        run: helm package chart/
+
+      - name: Push Helm chart
+        run: |
+          helm push subman-*.tgz \
+          oci://783149339345.dkr.ecr.eu-central-1.amazonaws.com/helmcharts
