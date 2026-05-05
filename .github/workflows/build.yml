@@ -33,6 +33,6 @@ jobs:
           context: .
           platforms: linux/amd64
           push: true
-          tags: 841602633529.dkr.ecr.eu-central-1.amazonaws.com/subscription-reminder:${{ github.ref_name }}
+          tags: 783149339345.dkr.ecr.eu-central-1.amazonaws.com/subscription-reminder:${{ github.ref_name }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
