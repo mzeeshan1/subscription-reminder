@@ -37,5 +37,4 @@ jobs:
 
       - name: Push Helm chart
         run: |
-          helm push subman-*.tgz \
-          oci://783149339345.dkr.ecr.eu-central-1.amazonaws.com/helmcharts
+          helm push subman-*.tgz oci://783149339345.dkr.ecr.eu-central-1.amazonaws.com
