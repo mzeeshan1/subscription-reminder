@@ -1,3 +1,12 @@
+# [1.9.0](https://github.com/mzeeshan1/subscription-reminder/compare/v1.8.0...v1.9.0) (2026-05-06)
+
+
+### Features
+
+* **chart:** test chart ci ([31b269e](https://github.com/mzeeshan1/subscription-reminder/commit/31b269e5114e401212623a7434c4c1f2a0e432c7))
+* **chart:** test chart ci ([11ab2e6](https://github.com/mzeeshan1/subscription-reminder/commit/11ab2e61a96f71f3df4fb3c720dbdc1ef63ba954))
+* **chart:** test chart ci ([4591042](https://github.com/mzeeshan1/subscription-reminder/commit/45910421a0c58ea660c70b6ce66f2a6afa28ef9c))
+
 # [1.8.0](https://github.com/mzeeshan1/subscription-reminder/compare/v1.7.2...v1.8.0) (2026-05-05)
 
 
