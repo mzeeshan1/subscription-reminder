@@ -8,5 +8,9 @@ dependencies:
     repository: "oci://783149339345.dkr.ecr.eu-central-1.amazonaws.com"
 =======
     version: "1.x.x"
+<<<<<<< HEAD
     repository: oci://783149339345.dkr.ecr.eu-central-1.amazonaws.com/subman
 >>>>>>> e2d0625 (Update Chart.yaml)
+=======
+    repository: oci://783149339345.dkr.ecr.eu-central-1.amazonaws.com
+>>>>>>> ac408b0 (Update Chart.yaml)
