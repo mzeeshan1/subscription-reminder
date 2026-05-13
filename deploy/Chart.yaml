@@ -3,5 +3,10 @@ name: subman
 version: 1.0.0
 dependencies:
   - name: subman
+<<<<<<< HEAD
     version: "^1.0.0"
     repository: "oci://783149339345.dkr.ecr.eu-central-1.amazonaws.com"
+=======
+    version: "1.x.x"
+    repository: oci://783149339345.dkr.ecr.eu-central-1.amazonaws.com/subman
+>>>>>>> e2d0625 (Update Chart.yaml)
