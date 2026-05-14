@@ -3,5 +3,5 @@ name: subman
 version: 1.0.0
 dependencies:
   - name: subman
-    version: 1.8.0
+    version: sha256:2b6ffb5147631b47f9f232f6fcea6289a358007e9721601db303d62950da26ac
     repository: oci://783149339345.dkr.ecr.eu-central-1.amazonaws.com
