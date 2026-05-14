@@ -1,3 +1,5 @@
 subman:
   ingress:
     host: subman.dev.emzien.click
+    tls:
+      enabled: true
