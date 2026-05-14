@@ -6,8 +6,11 @@ metadata:
   namespace: {{ .Release.Namespace }}
   labels:
     {{- include "subman.labels" . | nindent 4 }}
+  {{- $annotations := include "subman.ingress.annotations" . }}
+  {{- if $annotations }}
   annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /
+  {{- $annotations | nindent 4 }}
+{{- end }}
 spec:
   ingressClassName: {{ .Values.ingress.className }}
   rules:

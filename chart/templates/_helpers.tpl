@@ -40,6 +40,14 @@ app.kubernetes.io/instance: {{ .Release.Name }}
 {{- end }}
 
 {{/*
+Ingress annotations
+*/}}
+{{- define "subman.ingress.annotations" -}}
+{{- with .Values.ingress.annotations }}
+{{- toYaml . }}
+{{- end }}
+{{- end }}
+{{/*
 Postgres service name — used to build DATABASE_URL
 */}}
 {{- define "subman.postgresHost" -}}
