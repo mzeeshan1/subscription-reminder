@@ -1,3 +1,10 @@
+# [1.13.0](https://github.com/mzeeshan1/subscription-reminder/compare/v1.12.0...v1.13.0) (2026-05-14)
+
+
+### Features
+
+* **chart:** allow ingress annotations from values file ([4d180ca](https://github.com/mzeeshan1/subscription-reminder/commit/4d180ca3dff878f4e4409feb21816503d3140b10))
+
 # [1.12.0](https://github.com/mzeeshan1/subscription-reminder/compare/v1.11.0...v1.12.0) (2026-05-14)
 
 
