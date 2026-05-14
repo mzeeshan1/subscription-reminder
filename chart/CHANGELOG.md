@@ -1,3 +1,10 @@
+# [subscription-reminder-chart-v1.8.2](https://github.com/mzeeshan1/subscription-reminder/compare/chart-v1.8.1...chart-v1.8.2) (2026-05-14)
+
+
+### Bug Fixes
+
+* **chart:** fix pg data directory ([fc244eb](https://github.com/mzeeshan1/subscription-reminder/commit/fc244ebc167a20b5d1643e2cdc8a7185db6357c3))
+
 # [subscription-reminder-chart-v1.8.1](https://github.com/mzeeshan1/subscription-reminder/compare/chart-v1.8.0...chart-v1.8.1) (2026-05-14)
 
 
