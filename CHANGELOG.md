@@ -1,3 +1,10 @@
+# [1.12.0](https://github.com/mzeeshan1/subscription-reminder/compare/v1.11.0...v1.12.0) (2026-05-14)
+
+
+### Features
+
+* update deployment ([b936c63](https://github.com/mzeeshan1/subscription-reminder/commit/b936c63270e563323faff000e44a345457bd87b5))
+
 # [1.11.0](https://github.com/mzeeshan1/subscription-reminder/compare/v1.10.1...v1.11.0) (2026-05-14)
 
 
