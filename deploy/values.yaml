@@ -1,0 +1,3 @@
+subman:
+  ingress:
+    host: subman.dev.emzien.click
