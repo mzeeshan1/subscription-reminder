@@ -1,3 +1,15 @@
+# [1.11.0](https://github.com/mzeeshan1/subscription-reminder/compare/v1.10.1...v1.11.0) (2026-05-14)
+
+
+### Bug Fixes
+
+* **chart:** fix pg data directory ([fc244eb](https://github.com/mzeeshan1/subscription-reminder/commit/fc244ebc167a20b5d1643e2cdc8a7185db6357c3))
+
+
+### Features
+
+* update deployment ([87fd2a5](https://github.com/mzeeshan1/subscription-reminder/commit/87fd2a568d4216a30d7ca6cff9d1fe9e8481c0c4))
+
 ## [1.10.1](https://github.com/mzeeshan1/subscription-reminder/compare/v1.10.0...v1.10.1) (2026-05-14)
 
 
