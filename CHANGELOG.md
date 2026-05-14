@@ -1,3 +1,11 @@
+## [1.10.1](https://github.com/mzeeshan1/subscription-reminder/compare/v1.10.0...v1.10.1) (2026-05-14)
+
+
+### Bug Fixes
+
+* **chart:** add storage class to pg ([7e5a944](https://github.com/mzeeshan1/subscription-reminder/commit/7e5a9448c59454f0f9a6af89b4ed89da32da5413))
+* fix deployment ([cfec796](https://github.com/mzeeshan1/subscription-reminder/commit/cfec79667acd31b5946664eb8c90c6c50a270862))
+
 # [1.10.0](https://github.com/mzeeshan1/subscription-reminder/compare/v1.9.0...v1.10.0) (2026-05-06)
 
 
