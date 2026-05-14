@@ -3,31 +3,5 @@ name: subman
 version: 1.0.0
 dependencies:
   - name: subman
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
     version: "^1.0.0"
     repository: "oci://783149339345.dkr.ecr.eu-central-1.amazonaws.com"
-=======
-    version: "1.x.x"
-<<<<<<< HEAD
-    repository: oci://783149339345.dkr.ecr.eu-central-1.amazonaws.com/subman
->>>>>>> e2d0625 (Update Chart.yaml)
-=======
-=======
-    version: 1.8.0
->>>>>>> efa0a94 (Update Chart.yaml)
-=======
-    version: sha256:2b6ffb5147631b47f9f232f6fcea6289a358007e9721601db303d62950da26ac
->>>>>>> d820779 (Update Chart.yaml)
-    repository: oci://783149339345.dkr.ecr.eu-central-1.amazonaws.com
->>>>>>> ac408b0 (Update Chart.yaml)
-=======
-    version: "1.8.0"
-=======
-    version: "^1.8.0"
->>>>>>> 684e5c8 (fix: fix deployment)
-    repository: "oci://783149339345.dkr.ecr.eu-central-1.amazonaws.com"
->>>>>>> 10ca496 (Update Chart.yaml)
