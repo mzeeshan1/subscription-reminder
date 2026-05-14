@@ -6,6 +6,7 @@ metadata:
   labels:
     {{- include "subman.labels" . | nindent 4 }}
 spec:
+  storageClassName: {{ .Values.postgres.storageClassName}}
   accessModes:
     - ReadWriteOnce
   resources:
