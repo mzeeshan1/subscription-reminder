@@ -7,6 +7,7 @@ dependencies:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     version: "^1.0.0"
     repository: "oci://783149339345.dkr.ecr.eu-central-1.amazonaws.com"
 =======
@@ -25,5 +26,8 @@ dependencies:
 >>>>>>> ac408b0 (Update Chart.yaml)
 =======
     version: "1.8.0"
+=======
+    version: "^1.8.0"
+>>>>>>> 684e5c8 (fix: fix deployment)
     repository: "oci://783149339345.dkr.ecr.eu-central-1.amazonaws.com"
 >>>>>>> 10ca496 (Update Chart.yaml)
