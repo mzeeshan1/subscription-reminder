@@ -1,3 +1,10 @@
+# [subscription-reminder-chart-v1.14.0](https://github.com/mzeeshan1/subscription-reminder/compare/chart-v1.13.0...chart-v1.14.0) (2026-05-15)
+
+
+### Features
+
+* **chart:** add rollouts ([9e71315](https://github.com/mzeeshan1/subscription-reminder/commit/9e7131578755f4acbce5c834913d74c2d420b810))
+
 # [subscription-reminder-chart-v1.13.0](https://github.com/mzeeshan1/subscription-reminder/compare/chart-v1.12.0...chart-v1.13.0) (2026-05-15)
 
 
