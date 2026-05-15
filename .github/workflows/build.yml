@@ -34,5 +34,6 @@ jobs:
           platforms: linux/amd64
           push: true
           tags: 783149339345.dkr.ecr.eu-central-1.amazonaws.com/subscription-reminder:${{ github.ref_name }}
+          build-args: VERSION=${{ github.ref_name }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
