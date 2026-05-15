@@ -1,7 +1,7 @@
 subman:
   replicaCount: 0
   image:
-    tag: v1.16.0
+    tag: v1.18.0
   rollout:
     enabled: true
     previewHost: subman-preview.dev.emzien.click
