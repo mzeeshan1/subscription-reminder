@@ -1,0 +1,52 @@
+{{- if .Values.rollout.enabled }}
+apiVersion: argoproj.io/v1alpha1
+kind: Rollout
+metadata:
+  name: {{ include "subman.fullname" . }}-rollout
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "subman.labels" . | nindent 4 }}
+spec:
+  replicas: {{ .Values.rollout.replicas }}
+  workloadRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: {{ include "subman.fullname" . }}
+    scaleDown: onsuccess
+  strategy:
+    blueGreen:
+      activeService: {{ include "subman.fullname" . }}-active
+      previewService: {{ include "subman.fullname" . }}-preview
+      previewReplicaCount: {{ .Values.rollout.previewReplicaCount }}
+      autoPromotionEnabled: {{ .Values.rollout.autoPromotionEnabled }}
+      scaleDownDelaySeconds: {{ .Values.rollout.scaleDownDelaySeconds }}
+      abortScaleDownDelaySeconds: {{ .Values.rollout.scaleDownDelaySeconds }}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "subman.fullname" . }}-active
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "subman.labels" . | nindent 4 }}
+spec:
+  selector:
+    {{- include "subman.selectorLabels" . | nindent 4 }}
+  ports:
+    - port: 80
+      targetPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "subman.fullname" . }}-preview
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "subman.labels" . | nindent 4 }}
+spec:
+  selector:
+    {{- include "subman.selectorLabels" . | nindent 4 }}
+  ports:
+    - port: 80
+      targetPort: 8080
+{{- end }}
