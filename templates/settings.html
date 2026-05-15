@@ -69,6 +69,30 @@
       </div>
     </div>
 
+    <!-- Slack -->
+    <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
+      <div class="flex items-center gap-3 mb-4">
+        <div class="w-9 h-9 bg-purple-100 rounded-lg flex items-center justify-center text-lg">💬</div>
+        <div>
+          <h3 class="font-semibold text-gray-800">Slack</h3>
+          <p class="text-xs text-gray-400">Via Incoming Webhook</p>
+        </div>
+      </div>
+
+      <div>
+        <label class="block text-sm font-medium text-gray-700 mb-1">Webhook URL</label>
+        <input type="url" name="slack_webhook_url" value="{{.SlackWebhookURL}}"
+          placeholder="https://hooks.slack.com/services/..."
+          class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-400" />
+      </div>
+      <div class="mt-3 bg-purple-50 rounded-lg p-3 text-xs text-purple-700 space-y-1">
+        <p class="font-semibold">How to get a Webhook URL:</p>
+        <p>1. Go to <strong>api.slack.com/apps</strong> and create a new app</p>
+        <p>2. Enable <strong>Incoming Webhooks</strong> and add one to a channel</p>
+        <p>3. Copy the webhook URL and paste it above</p>
+      </div>
+    </div>
+
     <button type="submit"
       class="bg-indigo-600 text-white font-semibold px-6 py-2 rounded-lg hover:bg-indigo-700 transition text-sm">
       Save Settings

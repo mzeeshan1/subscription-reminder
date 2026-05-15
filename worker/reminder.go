@@ -37,7 +37,7 @@ func (r *Reminder) run() {
 
 	rows, err := r.db.QueryContext(ctx, `
 		SELECT s.id, s.user_id, s.name, s.cost, s.currency, s.cycle, s.next_renewal, s.notes,
-		       u.telegram_chat_id, u.whatsapp_number
+		       u.telegram_chat_id, u.whatsapp_number, u.slack_webhook_url
 		FROM subscriptions s
 		JOIN users u ON s.user_id = u.id
 		WHERE s.next_renewal = $1
@@ -50,12 +50,12 @@ func (r *Reminder) run() {
 
 	for rows.Next() {
 		var sub models.Subscription
-		var telegramID, whatsappNum string
+		var telegramID, whatsappNum, slackWebhook string
 
 		if err := rows.Scan(
 			&sub.ID, &sub.UserID, &sub.Name, &sub.Cost, &sub.Currency,
 			&sub.Cycle, &sub.NextRenewal, &sub.Notes,
-			&telegramID, &whatsappNum,
+			&telegramID, &whatsappNum, &slackWebhook,
 		); err != nil {
 			log.Printf("reminder: scan error: %v", err)
 			continue
@@ -76,6 +76,14 @@ func (r *Reminder) run() {
 				log.Printf("reminder: whatsapp error (sub %s): %v", sub.ID, err)
 			} else {
 				r.cache.MarkNotificationSent(ctx, sub.ID, renewalStr, "whatsapp")
+			}
+		}
+
+		if sent, _ := r.cache.WasNotificationSent(ctx, sub.ID, renewalStr, "slack"); !sent {
+			if err := r.notifier.SendSlack(slackWebhook, sub); err != nil {
+				log.Printf("reminder: slack error (sub %s): %v", sub.ID, err)
+			} else {
+				r.cache.MarkNotificationSent(ctx, sub.ID, renewalStr, "slack")
 			}
 		}
 	}

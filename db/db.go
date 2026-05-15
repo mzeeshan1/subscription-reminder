@@ -26,8 +26,9 @@ CREATE TABLE IF NOT EXISTS users (
 	id               UUID        PRIMARY KEY DEFAULT gen_random_uuid(),
 	email            TEXT        UNIQUE NOT NULL,
 	password_hash    TEXT        NOT NULL,
-	telegram_chat_id TEXT        NOT NULL DEFAULT '',
-	whatsapp_number  TEXT        NOT NULL DEFAULT '',
+	telegram_chat_id  TEXT        NOT NULL DEFAULT '',
+	whatsapp_number   TEXT        NOT NULL DEFAULT '',
+	slack_webhook_url TEXT        NOT NULL DEFAULT '',
 	created_at       TIMESTAMPTZ NOT NULL DEFAULT NOW(),
 	updated_at       TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );
@@ -47,4 +48,6 @@ CREATE TABLE IF NOT EXISTS subscriptions (
 
 CREATE INDEX IF NOT EXISTS idx_subs_user    ON subscriptions(user_id);
 CREATE INDEX IF NOT EXISTS idx_subs_renewal ON subscriptions(next_renewal);
+
+ALTER TABLE users ADD COLUMN IF NOT EXISTS slack_webhook_url TEXT NOT NULL DEFAULT '';
 `

@@ -11,6 +11,7 @@ import (
 type Notifier struct {
 	telegram *telegramSender
 	whatsapp *whatsappSender
+	slack    *slackSender
 }
 
 func New(cfg *config.Config) *Notifier {
@@ -21,6 +22,7 @@ func New(cfg *config.Config) *Notifier {
 	return &Notifier{
 		telegram: tg,
 		whatsapp: newWhatsApp(cfg.TwilioAccountSID, cfg.TwilioAuthToken, cfg.TwilioFromNumber),
+		slack:    &slackSender{},
 	}
 }
 
@@ -36,6 +38,13 @@ func (n *Notifier) SendWhatsApp(number string, sub models.Subscription) error {
 		return nil
 	}
 	return n.whatsapp.send(number, buildMessage(sub))
+}
+
+func (n *Notifier) SendSlack(webhookURL string, sub models.Subscription) error {
+	if webhookURL == "" {
+		return nil
+	}
+	return n.slack.send(webhookURL, buildMessage(sub))
 }
 
 func buildMessage(sub models.Subscription) string {
