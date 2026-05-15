@@ -1,3 +1,11 @@
+# [1.16.0](https://github.com/mzeeshan1/subscription-reminder/compare/v1.15.0...v1.16.0) (2026-05-15)
+
+
+### Features
+
+* **chart:** add rollouts ([9e71315](https://github.com/mzeeshan1/subscription-reminder/commit/9e7131578755f4acbce5c834913d74c2d420b810))
+* **chart:** switch to ecr ([b232e1a](https://github.com/mzeeshan1/subscription-reminder/commit/b232e1ac03683612a3425f5f7f9da496d127035f))
+
 # [1.15.0](https://github.com/mzeeshan1/subscription-reminder/compare/v1.14.1...v1.15.0) (2026-05-15)
 
 
