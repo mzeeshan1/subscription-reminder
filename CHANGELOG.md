@@ -1,3 +1,10 @@
+# [1.18.0](https://github.com/mzeeshan1/subscription-reminder/compare/v1.17.0...v1.18.0) (2026-05-15)
+
+
+### Features
+
+* display version in app ([5c942a5](https://github.com/mzeeshan1/subscription-reminder/commit/5c942a5117667e0846fdb8bffb6e1a97709e8059))
+
 # [1.17.0](https://github.com/mzeeshan1/subscription-reminder/compare/v1.16.0...v1.17.0) (2026-05-15)
 
 
