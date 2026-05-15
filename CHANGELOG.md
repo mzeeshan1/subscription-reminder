@@ -1,3 +1,13 @@
+# [1.14.0](https://github.com/mzeeshan1/subscription-reminder/compare/v1.13.0...v1.14.0) (2026-05-15)
+
+
+### Features
+
+* add slack integration ([e90c67a](https://github.com/mzeeshan1/subscription-reminder/commit/e90c67a4da2d00b8f04c5ef1f78daefaaeffabf5))
+* **chart:** test webhook ([1ad026d](https://github.com/mzeeshan1/subscription-reminder/commit/1ad026d4b8b4397bf7199f6e689293a68947fead))
+* **chart:** test webhook ([9ba391b](https://github.com/mzeeshan1/subscription-reminder/commit/9ba391b63b973e08fd6d0c6999f3ce2dd264a29b))
+* **chart:** test webhook ([73f34df](https://github.com/mzeeshan1/subscription-reminder/commit/73f34df9f3dbcffc34cde2ba05194a076d0a6970))
+
 # [1.13.0](https://github.com/mzeeshan1/subscription-reminder/compare/v1.12.0...v1.13.0) (2026-05-14)
 
 
