@@ -66,6 +66,7 @@ rollout:
   previewReplicaCount: 1
   autoPromotionEnabled: false
   scaleDownDelaySeconds: 30
+  previewHost: ""
 
 # Ingress
 ingress:
