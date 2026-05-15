@@ -1,3 +1,10 @@
+# [subscription-reminder-chart-v1.11.0](https://github.com/mzeeshan1/subscription-reminder/compare/chart-v1.10.0...chart-v1.11.0) (2026-05-15)
+
+
+### Features
+
+* **chart:** test webhook ([9ba391b](https://github.com/mzeeshan1/subscription-reminder/commit/9ba391b63b973e08fd6d0c6999f3ce2dd264a29b))
+
 # [subscription-reminder-chart-v1.10.0](https://github.com/mzeeshan1/subscription-reminder/compare/chart-v1.9.0...chart-v1.10.0) (2026-05-15)
 
 
