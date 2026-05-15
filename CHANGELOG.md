@@ -1,3 +1,10 @@
+# [1.17.0](https://github.com/mzeeshan1/subscription-reminder/compare/v1.16.0...v1.17.0) (2026-05-15)
+
+
+### Features
+
+* **chart:** add ingress for preview service ([7beaaa7](https://github.com/mzeeshan1/subscription-reminder/commit/7beaaa71234338f0618d535bf571e60000478233))
+
 # [1.16.0](https://github.com/mzeeshan1/subscription-reminder/compare/v1.15.0...v1.16.0) (2026-05-15)
 
 
