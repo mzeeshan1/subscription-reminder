@@ -1,3 +1,10 @@
+# [subscription-reminder-chart-v1.15.0](https://github.com/mzeeshan1/subscription-reminder/compare/chart-v1.14.0...chart-v1.15.0) (2026-05-15)
+
+
+### Features
+
+* **chart:** switch to ecr ([b232e1a](https://github.com/mzeeshan1/subscription-reminder/commit/b232e1ac03683612a3425f5f7f9da496d127035f))
+
 # [subscription-reminder-chart-v1.14.0](https://github.com/mzeeshan1/subscription-reminder/compare/chart-v1.13.0...chart-v1.14.0) (2026-05-15)
 
 
