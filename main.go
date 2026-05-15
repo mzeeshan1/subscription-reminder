@@ -1,6 +1,7 @@
 package main
 
 import (
+	"html/template"
 	"log"
 
 	"subscription-manager/cache"
@@ -13,6 +14,9 @@ import (
 
 	"github.com/gin-gonic/gin"
 )
+
+// Version is set at build time via -ldflags "-X main.Version=vX.Y.Z"
+var Version = "dev"
 
 func main() {
 	cfg := config.Load()
@@ -37,6 +41,9 @@ func main() {
 	defer w.Stop()
 
 	router := gin.Default()
+	router.SetFuncMap(template.FuncMap{
+		"appVersion": func() string { return Version },
+	})
 	router.LoadHTMLGlob("templates/*.html")
 
 	authH := handlers.NewAuthHandler(database, redisCache, cfg)
