@@ -57,6 +57,16 @@ resources:
     cpu: 500m
     memory: 128Mi
 
+# Argo Rollouts — blue-green deployment strategy
+# Requires Argo Rollouts controller installed in the cluster.
+# When disabled, the plain Deployment in deployment.yaml is used.
+rollout:
+  enabled: false
+  replicas: 2
+  previewReplicaCount: 1
+  autoPromotionEnabled: false
+  scaleDownDelaySeconds: 30
+
 # Ingress
 ingress:
   enabled: true
