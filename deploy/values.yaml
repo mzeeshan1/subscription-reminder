@@ -1,4 +1,7 @@
 subman:
+  replicaCount: 0
+  rollout:
+    enabled: true
   ingress:
     host: subman.dev.emzien.click
     tls:
