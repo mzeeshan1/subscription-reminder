@@ -1,5 +1,5 @@
 # App
-replicaCount: 1
+replicaCount: 2
 
 image:
   repository: mzeeshan92/subman
