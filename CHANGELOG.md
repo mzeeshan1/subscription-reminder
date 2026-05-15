@@ -1,3 +1,10 @@
+## [1.14.1](https://github.com/mzeeshan1/subscription-reminder/compare/v1.14.0...v1.14.1) (2026-05-15)
+
+
+### Bug Fixes
+
+* add slack notification ([ddc09f7](https://github.com/mzeeshan1/subscription-reminder/commit/ddc09f7e274ff6039fc1245b901b861d4cb41534))
+
 # [1.14.0](https://github.com/mzeeshan1/subscription-reminder/compare/v1.13.0...v1.14.0) (2026-05-15)
 
 
