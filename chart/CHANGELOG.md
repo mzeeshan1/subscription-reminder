@@ -1,3 +1,10 @@
+# [subscription-reminder-chart-v1.19.0](https://github.com/mzeeshan1/subscription-reminder/compare/chart-v1.18.0...chart-v1.19.0) (2026-05-16)
+
+
+### Features
+
+* **chart:** chage rollout strategy to canary ([1b11a23](https://github.com/mzeeshan1/subscription-reminder/commit/1b11a233e0fa74a35dc15618685e8e2a776908c1))
+
 # [subscription-reminder-chart-v1.18.0](https://github.com/mzeeshan1/subscription-reminder/compare/chart-v1.17.2...chart-v1.18.0) (2026-05-16)
 
 
