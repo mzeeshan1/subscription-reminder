@@ -8,6 +8,7 @@ import (
 
 	"github.com/robfig/cron/v3"
 	"subscription-manager/cache"
+	"subscription-manager/metrics"
 	"subscription-manager/models"
 	"subscription-manager/notifications"
 )
@@ -66,24 +67,30 @@ func (r *Reminder) run() {
 		if sent, _ := r.cache.WasNotificationSent(ctx, sub.ID, renewalStr, "telegram"); !sent {
 			if err := r.notifier.SendTelegram(telegramID, sub); err != nil {
 				log.Printf("reminder: telegram error (sub %s): %v", sub.ID, err)
+				metrics.NotificationsFailedTotal.WithLabelValues("telegram").Inc()
 			} else {
 				r.cache.MarkNotificationSent(ctx, sub.ID, renewalStr, "telegram")
+				metrics.NotificationsSentTotal.WithLabelValues("telegram").Inc()
 			}
 		}
 
 		if sent, _ := r.cache.WasNotificationSent(ctx, sub.ID, renewalStr, "whatsapp"); !sent {
 			if err := r.notifier.SendWhatsApp(whatsappNum, sub); err != nil {
 				log.Printf("reminder: whatsapp error (sub %s): %v", sub.ID, err)
+				metrics.NotificationsFailedTotal.WithLabelValues("whatsapp").Inc()
 			} else {
 				r.cache.MarkNotificationSent(ctx, sub.ID, renewalStr, "whatsapp")
+				metrics.NotificationsSentTotal.WithLabelValues("whatsapp").Inc()
 			}
 		}
 
 		if sent, _ := r.cache.WasNotificationSent(ctx, sub.ID, renewalStr, "slack"); !sent {
 			if err := r.notifier.SendSlack(slackWebhook, sub); err != nil {
 				log.Printf("reminder: slack error (sub %s): %v", sub.ID, err)
+				metrics.NotificationsFailedTotal.WithLabelValues("slack").Inc()
 			} else {
 				r.cache.MarkNotificationSent(ctx, sub.ID, renewalStr, "slack")
+				metrics.NotificationsSentTotal.WithLabelValues("slack").Inc()
 			}
 		}
 	}

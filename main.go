@@ -9,10 +9,12 @@ import (
 	"subscription-manager/db"
 	"subscription-manager/handlers"
 	"subscription-manager/middleware"
+	_ "subscription-manager/metrics"
 	"subscription-manager/notifications"
 	"subscription-manager/worker"
 
 	"github.com/gin-gonic/gin"
+	"github.com/prometheus/client_golang/prometheus/promhttp"
 )
 
 // Version is set at build time via -ldflags "-X main.Version=vX.Y.Z"
@@ -41,10 +43,13 @@ func main() {
 	defer w.Stop()
 
 	router := gin.Default()
+	router.Use(middleware.Metrics())
 	router.SetFuncMap(template.FuncMap{
 		"appVersion": func() string { return Version },
 	})
 	router.LoadHTMLGlob("templates/*.html")
+
+	router.GET("/metrics", gin.WrapH(promhttp.Handler()))
 
 	authH := handlers.NewAuthHandler(database, redisCache, cfg)
 	subH := handlers.NewSubscriptionHandler(database, redisCache)
