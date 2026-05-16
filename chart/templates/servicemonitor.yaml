@@ -2,6 +2,9 @@ apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
   name: {{ include "subman.fullname" . }}-service-monitor
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "subman.labels" . | nindent 4 }}
 spec:
   selector:
     matchLabels:
