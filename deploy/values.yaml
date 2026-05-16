@@ -1,7 +1,7 @@
 subman:
   replicaCount: 0
   image:
-    tag: v1.19.0
+    tag: v1.20.0
   rollout:
     enabled: true
   ingress:
