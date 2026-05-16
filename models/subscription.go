@@ -47,3 +47,17 @@ func (s Subscription) DaysUntilRenewal() int {
 func (s Subscription) RenewalDateStr() string {
 	return s.NextRenewal.Format("2006-01-02")
 }
+
+func (s Subscription) NextRenewalDate() time.Time {
+	switch s.Cycle {
+	case CycleWeekly:
+		return s.NextRenewal.AddDate(0, 0, 7)
+	case CycleMonthly:
+		return s.NextRenewal.AddDate(0, 1, 0)
+	case CycleQuarterly:
+		return s.NextRenewal.AddDate(0, 3, 0)
+	case CycleYearly:
+		return s.NextRenewal.AddDate(1, 0, 0)
+	}
+	return s.NextRenewal
+}

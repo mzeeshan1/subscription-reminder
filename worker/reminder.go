@@ -34,6 +34,11 @@ func (r *Reminder) Stop() { r.cron.Stop() }
 
 func (r *Reminder) run() {
 	ctx := context.Background()
+	r.sendReminders(ctx)
+	r.advanceRenewals(ctx)
+}
+
+func (r *Reminder) sendReminders(ctx context.Context) {
 	target := time.Now().UTC().AddDate(0, 0, 5).Format("2006-01-02")
 
 	rows, err := r.db.QueryContext(ctx, `
@@ -93,5 +98,54 @@ func (r *Reminder) run() {
 				metrics.NotificationsSentTotal.WithLabelValues("slack").Inc()
 			}
 		}
+	}
+}
+
+func (r *Reminder) advanceRenewals(ctx context.Context) {
+	today := time.Now().UTC().Format("2006-01-02")
+
+	rows, err := r.db.QueryContext(ctx, `
+		SELECT id, user_id, cycle, next_renewal
+		FROM subscriptions
+		WHERE next_renewal <= $1
+	`, today)
+	if err != nil {
+		log.Printf("advance renewals: query error: %v", err)
+		return
+	}
+	defer rows.Close()
+
+	type record struct {
+		id      string
+		userID  string
+		cycle   models.Cycle
+		current time.Time
+	}
+
+	var due []record
+	for rows.Next() {
+		var rec record
+		if err := rows.Scan(&rec.id, &rec.userID, &rec.cycle, &rec.current); err != nil {
+			log.Printf("advance renewals: scan error: %v", err)
+			continue
+		}
+		due = append(due, rec)
+	}
+	rows.Close()
+
+	for _, rec := range due {
+		sub := models.Subscription{Cycle: rec.cycle, NextRenewal: rec.current}
+		next := sub.NextRenewalDate()
+
+		_, err := r.db.ExecContext(ctx, `
+			UPDATE subscriptions SET next_renewal=$1, updated_at=NOW() WHERE id=$2
+		`, next.Format("2006-01-02"), rec.id)
+		if err != nil {
+			log.Printf("advance renewals: update error (sub %s): %v", rec.id, err)
+			continue
+		}
+
+		r.cache.InvalidateSubsCache(ctx, rec.userID)
+		log.Printf("advance renewals: advanced sub %s from %s to %s", rec.id, rec.current.Format("2006-01-02"), next.Format("2006-01-02"))
 	}
 }
