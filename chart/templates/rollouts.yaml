@@ -69,7 +69,7 @@ spec:
       successCondition: result[0] < 0.05
       provider:
         prometheus:
-          address: http://prometheus-operated.kube-state-metrics.svc.cluster.local
+          address: http://prometheus-operated.kube-prometheus-stack.svc.cluster.local
           query: |
             (
               sum(
@@ -99,7 +99,7 @@ spec:
       successCondition: result[0] < 0.5
       provider:
         prometheus:
-          address: http://prometheus-operated.kube-state-metrics.svc.cluster.local
+          address: http://prometheus-operated.kube-prometheus-stack.svc.cluster.local
           query: |
             histogram_quantile(
               0.95,
