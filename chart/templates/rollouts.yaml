@@ -35,6 +35,8 @@ spec:
   ports:
     - port: 80
       targetPort: 8080
+      name: http
+
 ---
 apiVersion: v1
 kind: Service
@@ -49,4 +51,5 @@ spec:
   ports:
     - port: 80
       targetPort: 8080
+      name: http
 {{- end }}
