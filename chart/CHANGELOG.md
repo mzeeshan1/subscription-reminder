@@ -1,3 +1,10 @@
+# [subscription-reminder-chart-v1.17.0](https://github.com/mzeeshan1/subscription-reminder/compare/chart-v1.16.0...chart-v1.17.0) (2026-05-16)
+
+
+### Features
+
+* **chart:** add service monitor for metrics ([b2e9f99](https://github.com/mzeeshan1/subscription-reminder/commit/b2e9f99017b16e43404843967f4f95b4dcfad9d2))
+
 # [subscription-reminder-chart-v1.16.0](https://github.com/mzeeshan1/subscription-reminder/compare/chart-v1.15.0...chart-v1.16.0) (2026-05-15)
 
 
