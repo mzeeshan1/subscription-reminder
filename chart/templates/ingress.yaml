@@ -31,38 +31,3 @@ spec:
       secretName: {{ .Values.ingress.tls.secretName }}
   {{- end }}
 {{- end }}
-
-{{- if and .Values.rollout.enabled .Values.rollout.previewHost }}
----
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
-  name: {{ include "subman.fullname" . }}-preview-ingress
-  namespace: {{ .Release.Namespace }}
-  labels:
-    {{- include "subman.labels" . | nindent 4 }}
-  {{- $annotations := include "subman.ingress.annotations" . }}
-  {{- if $annotations }}
-  annotations:
-  {{- $annotations | nindent 4 }}
-  {{- end }}
-spec:
-  ingressClassName: {{ .Values.ingress.className }}
-  rules:
-    - host: {{ .Values.rollout.previewHost }}
-      http:
-        paths:
-          - path: /
-            pathType: Prefix
-            backend:
-              service:
-                name: {{ include "subman.fullname" . }}-preview
-                port:
-                  number: 80
-  {{- if .Values.ingress.tls.enabled }}
-  tls:
-    - hosts:
-        - {{ .Values.rollout.previewHost }}
-      secretName: {{ include "subman.fullname" . }}-preview-tls
-  {{- end }}
-{{- end }}

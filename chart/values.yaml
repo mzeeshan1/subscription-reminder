@@ -63,9 +63,6 @@ resources:
 rollout:
   enabled: false
   replicas: 2
-  previewReplicaCount: 1
-  autoPromotionEnabled: false
-  scaleDownDelaySeconds: 30
   previewHost: ""
 
 # Ingress

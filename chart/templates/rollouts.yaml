@@ -1,31 +1,121 @@
 {{- if .Values.rollout.enabled }}
+---
 apiVersion: argoproj.io/v1alpha1
 kind: Rollout
 metadata:
   name: {{ include "subman.fullname" . }}-rollout
-  namespace: {{ .Release.Namespace }}
-  labels:
-    {{- include "subman.labels" . | nindent 4 }}
 spec:
   replicas: {{ .Values.rollout.replicas }}
+  revisionHistoryLimit: 3
   workloadRef:
     apiVersion: apps/v1
     kind: Deployment
     name: {{ include "subman.fullname" . }}
     scaleDown: onsuccess
   strategy:
-    blueGreen:
-      activeService: {{ include "subman.fullname" . }}-active
-      previewService: {{ include "subman.fullname" . }}-preview
-      previewReplicaCount: {{ .Values.rollout.previewReplicaCount }}
-      autoPromotionEnabled: {{ .Values.rollout.autoPromotionEnabled }}
-      scaleDownDelaySeconds: {{ .Values.rollout.scaleDownDelaySeconds }}
-      abortScaleDownDelaySeconds: {{ .Values.rollout.scaleDownDelaySeconds }}
+    canary:
+      stableService: {{ include "subman.fullname" . }}-stable
+      canaryService: {{ include "subman.fullname" . }}-canary
+      maxUnavailable: 1
+      maxSurge: {{ .Values.rollout.maxSurge }}
+      scaleDownDelaySeconds: 30
+      minPodsPerReplicaSet: 2
+      abortScaleDownDelaySeconds: 60
+      trafficRouting:
+        nginx:
+          stableIngress: {{ include "subman.fullname" . }}-ingress
+          additionalIngressAnnotations:
+            canary-by-header: X-Canary
+            canary-by-header-value: internal
+      analysis:
+        templates:
+          - templateName: {{ include "subman.fullname" . }}-analysis
+        args:
+          - name: service-name
+            value: {{ include "subman.fullname" . }}-canary
+      steps:
+        - setWeight: 5
+        - pause:
+            duration: 2m
+        - analysis:
+            templates:
+              - templateName: {{ include "subman.fullname" . }}-analysis
+            args:
+              - name: service-name
+                value: {{ include "subman.fullname" . }}-canary
+        - setWeight: 20
+        - pause:
+            duration: 5m
+        - setWeight: 50
+        - pause:
+            duration: 10m
+        - pause: {}
+        - setWeight: 100
+
+
+---
+apiVersion: argoproj.io/v1alpha1
+kind: AnalysisTemplate
+metadata:
+  name: {{ include "subman.fullname" . }}-analysis
+spec:
+  args:
+    - name: service-name
+  metrics:
+    - name: error-rate
+      interval: 30s
+      count: 5
+      failureLimit: 2
+      successCondition: result[0] < 0.05
+      provider:
+        prometheus:
+          address: http://prometheus-operated.kube-state-metrics.svc.cluster.local
+          query: |
+            (
+              sum(
+                rate(
+                  http_requests_total{
+                    service="{{`{{args.service-name}}`}}",
+                    status=~"5.."
+                  }[2m]
+                )
+              )
+            )
+            /
+            (
+              sum(
+                rate(
+                  http_requests_total{
+                    service="{{`{{args.service-name}}`}}"
+                  }[2m]
+                )
+              )
+            )
+
+    - name: p95-latency
+      interval: 30s
+      count: 5
+      failureLimit: 2
+      successCondition: result[0] < 0.5
+      provider:
+        prometheus:
+          address: http://prometheus-operated.kube-state-metrics.svc.cluster.local
+          query: |
+            histogram_quantile(
+              0.95,
+              sum(
+                rate(
+                  http_request_duration_seconds{
+                    service="{{`{{args.service-name}}`}}"
+                  }[2m]
+                )
+              ) by (le)
+            )
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ include "subman.fullname" . }}-active
+  name: {{ include "subman.fullname" . }}-stable
   namespace: {{ .Release.Namespace }}
   labels:
     {{- include "subman.labels" . | nindent 4 }}
@@ -36,12 +126,11 @@ spec:
     - port: 80
       targetPort: 8080
       name: http
-
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ include "subman.fullname" . }}-preview
+  name: {{ include "subman.fullname" . }}-canary
   namespace: {{ .Release.Namespace }}
   labels:
     {{- include "subman.labels" . | nindent 4 }}
