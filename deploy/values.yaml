@@ -4,7 +4,6 @@ subman:
     tag: v1.19.0
   rollout:
     enabled: true
-    previewHost: subman-preview.dev.emzien.click
   ingress:
     host: subman.dev.emzien.click
     tls:
