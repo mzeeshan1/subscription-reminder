@@ -1,0 +1,20 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: {{ include "subman.fullname" . }}-service-monitor
+spec:
+  selector:
+    matchLabels:
+    {{- include "subman.selectorLabels" . | nindent 6 }}
+  namespaceSelector:
+    matchNames:
+      - {{ .Release.Namespace }}
+  endpoints:
+    - port: http
+      path: /metrics
+      interval: 30s
+      scrapeTimeout: 10s
+      metricRelabelings:
+        - sourceLabels: [__name__]
+          regex: "http_requests_total|http_request_duration_seconds.*|notifications_sent_total|notifications_failed_total"
+          action: keep
