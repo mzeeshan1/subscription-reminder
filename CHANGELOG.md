@@ -1,3 +1,19 @@
+# [1.20.0](https://github.com/mzeeshan1/subscription-reminder/compare/v1.19.0...v1.20.0) (2026-05-16)
+
+
+### Bug Fixes
+
+* **chart:** update service monitor ([9d7420a](https://github.com/mzeeshan1/subscription-reminder/commit/9d7420a39caae4aeb1c70f70f242d35a3b95d57d))
+* **chart:** update service monitor ([4825b1a](https://github.com/mzeeshan1/subscription-reminder/commit/4825b1a4642812c67fd4aa48db621049c1678554))
+
+
+### Features
+
+* **chart:** add service monitor for metrics ([b2e9f99](https://github.com/mzeeshan1/subscription-reminder/commit/b2e9f99017b16e43404843967f4f95b4dcfad9d2))
+* **chart:** chage rollout strategy to canary ([1b11a23](https://github.com/mzeeshan1/subscription-reminder/commit/1b11a233e0fa74a35dc15618685e8e2a776908c1))
+* **chart:** chage rollout strategy to canary ([50807e5](https://github.com/mzeeshan1/subscription-reminder/commit/50807e5d65de7a641661738486f6b89639bb0455))
+* update next renewal date automatically ([d625868](https://github.com/mzeeshan1/subscription-reminder/commit/d6258684eda40b80847976cb185fe9ef04e917aa))
+
 # [1.19.0](https://github.com/mzeeshan1/subscription-reminder/compare/v1.18.0...v1.19.0) (2026-05-16)
 
 
