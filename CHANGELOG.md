@@ -1,3 +1,11 @@
+# [1.19.0](https://github.com/mzeeshan1/subscription-reminder/compare/v1.18.0...v1.19.0) (2026-05-16)
+
+
+### Features
+
+* add metrics ([9d39163](https://github.com/mzeeshan1/subscription-reminder/commit/9d391639d3159208fedc47c27ba7188acba52db5))
+* add metrics ([2284bcf](https://github.com/mzeeshan1/subscription-reminder/commit/2284bcfa08ed39879cbdd3614f0e77b05f2bd6b0))
+
 # [1.18.0](https://github.com/mzeeshan1/subscription-reminder/compare/v1.17.0...v1.18.0) (2026-05-15)
 
 
