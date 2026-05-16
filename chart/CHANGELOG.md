@@ -1,3 +1,10 @@
+# [subscription-reminder-chart-v1.19.2](https://github.com/mzeeshan1/subscription-reminder/compare/chart-v1.19.1...chart-v1.19.2) (2026-05-16)
+
+
+### Bug Fixes
+
+* **chart:** fix rollout ([658a0a2](https://github.com/mzeeshan1/subscription-reminder/commit/658a0a21474417515dea4474ec273d781c04df9c))
+
 # [subscription-reminder-chart-v1.19.1](https://github.com/mzeeshan1/subscription-reminder/compare/chart-v1.19.0...chart-v1.19.1) (2026-05-16)
 
 
