@@ -1,3 +1,10 @@
+# [subscription-reminder-chart-v1.17.1](https://github.com/mzeeshan1/subscription-reminder/compare/chart-v1.17.0...chart-v1.17.1) (2026-05-16)
+
+
+### Bug Fixes
+
+* **chart:** update service monitor ([4825b1a](https://github.com/mzeeshan1/subscription-reminder/commit/4825b1a4642812c67fd4aa48db621049c1678554))
+
 # [subscription-reminder-chart-v1.17.0](https://github.com/mzeeshan1/subscription-reminder/compare/chart-v1.16.0...chart-v1.17.0) (2026-05-16)
 
 
