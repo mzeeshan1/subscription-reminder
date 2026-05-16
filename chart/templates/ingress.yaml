@@ -21,7 +21,7 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: {{ if .Values.rollout.enabled }}{{ include "subman.fullname" . }}-active{{ else }}{{ include "subman.fullname" . }}{{ end }}
+                name: {{ if .Values.rollout.enabled }}{{ include "subman.fullname" . }}-stable{{ else }}{{ include "subman.fullname" . }}{{ end }}
                 port:
                   number: 80
   {{- if .Values.ingress.tls.enabled }}
@@ -31,3 +31,4 @@ spec:
       secretName: {{ .Values.ingress.tls.secretName }}
   {{- end }}
 {{- end }}
+
