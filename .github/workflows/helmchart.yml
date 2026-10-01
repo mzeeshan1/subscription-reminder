@@ -24,7 +24,7 @@ jobs:
         run: |
           aws ecr get-login-password | helm registry login \
             --username AWS \
-            --password-stdin 783149339345.dkr.ecr.eu-central-1.amazonaws.com
+            --password-stdin 261175718795.dkr.ecr.eu-central-1.amazonaws.com
 
       - name: Lint Helm chart
         run: helm lint chart/
@@ -37,4 +37,4 @@ jobs:
 
       - name: Push Helm chart
         run: |
-          helm push subman-*.tgz oci://783149339345.dkr.ecr.eu-central-1.amazonaws.com
+          helm push subman-*.tgz oci://261175718795.dkr.ecr.eu-central-1.amazonaws.com
