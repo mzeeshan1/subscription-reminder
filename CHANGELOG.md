@@ -1,3 +1,10 @@
+# [1.22.0](https://github.com/mzeeshan1/subscription-reminder/compare/v1.21.0...v1.22.0) (2026-10-01)
+
+
+### Features
+
+* release app ([647c685](https://github.com/mzeeshan1/subscription-reminder/commit/647c685d269ef36a56881f2f776c0ea4ebb3e879))
+
 # [1.21.0](https://github.com/mzeeshan1/subscription-reminder/compare/v1.20.0...v1.21.0) (2026-10-01)
 
 
