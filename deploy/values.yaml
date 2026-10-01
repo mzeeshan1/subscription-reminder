@@ -5,7 +5,7 @@ subman:
   rollout:
     enabled: true
   ingress:
-    host: subman.dev.emzien.click
+    host: subman.heimbuero-test.de
     tls:
       enabled: true
     annotations:
