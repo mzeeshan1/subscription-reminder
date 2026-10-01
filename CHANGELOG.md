@@ -1,3 +1,22 @@
+# [1.21.0](https://github.com/mzeeshan1/subscription-reminder/compare/v1.20.0...v1.21.0) (2026-10-01)
+
+
+### Bug Fixes
+
+* **chart:** fix ci ([af51ca8](https://github.com/mzeeshan1/subscription-reminder/commit/af51ca83aa83b953079f236051ba457157f2c5af))
+* **chart:** fix ci ([fbcbced](https://github.com/mzeeshan1/subscription-reminder/commit/fbcbced3be0809d6c415e50a02344aeca112de01))
+* **chart:** fix rollout ([f8e3441](https://github.com/mzeeshan1/subscription-reminder/commit/f8e3441d3bcb8897416190e7f5356a7c65b1a6c9))
+* **chart:** fix rollout ([b8a8703](https://github.com/mzeeshan1/subscription-reminder/commit/b8a87032e10f7ac72e37b8b3da7bb4248e776802))
+* **chart:** fix rollout ([658a0a2](https://github.com/mzeeshan1/subscription-reminder/commit/658a0a21474417515dea4474ec273d781c04df9c))
+* **chart:** fix rollout ([4fc71e7](https://github.com/mzeeshan1/subscription-reminder/commit/4fc71e71e3aa5af877a0c1981a1b1b338ef25de0))
+* **chart:** release another version ([9ef8c87](https://github.com/mzeeshan1/subscription-reminder/commit/9ef8c8775c395f686d5b2b28506d0c9de3f76581))
+
+
+### Features
+
+* **chart:** fix ([e87b265](https://github.com/mzeeshan1/subscription-reminder/commit/e87b265414c59de374b1d212aaab7bce7cf308d9))
+* update deployment ([84f5685](https://github.com/mzeeshan1/subscription-reminder/commit/84f5685d71a7584145360d8588ec753cd62a47ce))
+
 # [1.20.0](https://github.com/mzeeshan1/subscription-reminder/compare/v1.19.0...v1.20.0) (2026-05-16)
 
 
