@@ -5,6 +5,10 @@ on:
     tags:
       - "chart-v[0-9]*"
 
+permissions:
+  id-token: write
+  contents: read
+
 jobs:
   package-and-push-chart:
     runs-on: ubuntu-latest
