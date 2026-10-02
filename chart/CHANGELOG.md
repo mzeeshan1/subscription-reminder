@@ -1,3 +1,10 @@
+# [subscription-reminder-chart-v1.23.0](https://github.com/mzeeshan1/subscription-reminder/compare/chart-v1.22.0...chart-v1.23.0) (2026-10-02)
+
+
+### Features
+
+* **chart:** trigger ci ([27e5c2a](https://github.com/mzeeshan1/subscription-reminder/commit/27e5c2aa4007689be8833a3e4af436101cef5c35))
+
 # [subscription-reminder-chart-v1.22.0](https://github.com/mzeeshan1/subscription-reminder/compare/chart-v1.21.0...chart-v1.22.0) (2026-10-02)
 
 
