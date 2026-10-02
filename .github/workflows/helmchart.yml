@@ -22,6 +22,7 @@ jobs:
         with:
           role-to-assume: arn:aws:iam::261175718795:role/github-actions
           aws-region: eu-central-1
+          audience: sts.amazonaws.com
 
       - name: Login to ECR (Helm OCI)
         run: |
