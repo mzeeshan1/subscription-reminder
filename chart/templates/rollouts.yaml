@@ -142,4 +142,3 @@ spec:
       targetPort: 8080
       name: http
 {{- end }}
-
