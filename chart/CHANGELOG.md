@@ -1,3 +1,10 @@
+# [subscription-reminder-chart-v1.21.0](https://github.com/mzeeshan1/subscription-reminder/compare/chart-v1.20.0...chart-v1.21.0) (2026-10-02)
+
+
+### Features
+
+* **chart:** update chart and deployemtn ([d481bbc](https://github.com/mzeeshan1/subscription-reminder/commit/d481bbceb5a47debea048e70358012196d626e5a))
+
 # [subscription-reminder-chart-v1.20.0](https://github.com/mzeeshan1/subscription-reminder/compare/chart-v1.19.5...chart-v1.20.0) (2026-10-01)
 
 
